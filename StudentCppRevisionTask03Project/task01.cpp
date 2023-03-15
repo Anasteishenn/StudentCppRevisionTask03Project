@@ -37,10 +37,14 @@
 */
 
 int task01(int number) {
-	if (number /10000!=0 ) {
+	if (number >9999||number<-9999 ) {
 		return 0;
 	}
-	number > 0 ? number : abs(number);
-	
-	return ((number%10)+(((number%100)-(number%10))/10)- (number % 10) / 100);
+	number = abs(number);
+	int b = 0;
+	do {
+		b += (number % 10);
+		number = number / 10;
+	} while (number > 0);
+	return b;
 }
